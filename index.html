@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jinny (Huizhen) Piao | Business Analytics & IT Student at Rutgers</title>
+    <meta name="description" content="Digital Business Card & Portfolio of Jinny (Huizhen) Piao - Student at Rutgers Business School seeking internship and career opportunities.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rutgers: {
+                            DEFAULT: '#cc0033',
+                            dark: '#990026',
+                            light: '#ff1a4d',
+                            50: '#fff0f3',
+                            100: '#ffe1e6'
+                        },
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        accent: {
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        /* Crisp Light Card Styles */
+        .white-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 4px 18px -2px rgba(148, 163, 184, 0.08), 0 2px 6px -1px rgba(148, 163, 184, 0.05);
+        }
+
+        .white-card-hover {
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .white-card-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px -4px rgba(204, 0, 51, 0.08), 0 4px 12px -2px rgba(148, 163, 184, 0.1);
+            border-color: rgba(204, 0, 51, 0.3);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        /* Subtle Light Background Pattern */
+        .bg-mesh-light {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(at 15% 15%, rgba(204, 0, 51, 0.05) 0px, transparent 40%),
+                radial-gradient(at 85% 20%, rgba(99, 102, 241, 0.05) 0px, transparent 40%),
+                radial-gradient(at 50% 75%, rgba(14, 165, 233, 0.04) 0px, transparent 40%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Toast Animation */
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateY(16px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .toast-animate {
+            animation: toastIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+<body class="bg-mesh-light min-h-screen relative text-slate-800 antialiased selection:bg-rutgers selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 glass-nav transition-all duration-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Logo -->
+                <a href="#hero" class="flex items-center gap-2.5 group">
+                    <div class="w-9 h-9 rounded-xl bg-rutgers flex items-center justify-center text-white font-extrabold text-sm shadow-sm group-hover:scale-105 transition-transform">
+                        JP
+                    </div>
+                    <div>
+                        <span class="font-extrabold text-slate-900 tracking-tight text-base block leading-none">
+                            Jinny Piao
+                        </span>
+                        <span class="text-[10px] text-slate-500 font-semibold block mt-0.5">Rutgers University</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center gap-1 text-xs font-semibold text-slate-600">
+                    <a href="#about" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-rutgers transition-colors">About</a>
+                    <a href="#education" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-rutgers transition-colors">Education</a>
+                    <a href="#skills" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-rutgers transition-colors">Skills</a>
+                    <a href="#experience" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-rutgers transition-colors">Experience</a>
+                    <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-rutgers transition-colors">Contact</a>
+                </nav>
+
+            </div>
+
+            <!-- Mobile Dropdown -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4 pt-1 border-t border-slate-200/80 flex flex-col space-y-1 text-sm font-medium">
+                <a href="#about" class="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100">About</a>
+                <a href="#education" class="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100">Education</a>
+                <a href="#skills" class="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100">Skills</a>
+                <a href="#experience" class="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100">Experience & Fellowships</a>
+                <a href="#contact" class="px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-100">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Digital Business Card Section -->
+    <section id="hero" class="pt-6 pb-6 md:pt-8 md:pb-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="white-card rounded-3xl p-6 sm:p-8 relative overflow-hidden border border-slate-200 shadow-sm">
+                <!-- Top Rutgers Red Stripe -->
+                <div class="absolute top-0 left-0 right-0 h-2 bg-rutgers"></div>
+
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <!-- Profile Info -->
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+                        <!-- Avatar / Rutgers RBS Logo Badge -->
+                        <div class="relative shrink-0">
+                            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br from-rutgers-50 to-slate-100 border-2 border-rutgers/30 flex flex-col items-center justify-center shadow-inner overflow-hidden">
+                                <span class="text-rutgers font-extrabold text-2xl tracking-tighter">RBS</span>
+                                <span class="text-[10px] font-bold text-slate-600 tracking-wider uppercase mt-0.5">Rutgers</span>
+                            </div>
+                            <span class="absolute -bottom-1 -right-1 flex h-4 w-4">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-white"></span>
+                            </span>
+                        </div>
+
+                        <div class="flex-1 min-w-0">
+                            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/80 mb-2">
+                                Open to Internships & Opportunities
+                            </div>
+                            
+                            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                                Jinny (Huizhen) Piao
+                            </h1>
+                            
+                            <!-- Typewriter Animated Subtitle -->
+                            <div class="h-6 flex items-center justify-center sm:justify-start mt-0.5">
+                                <span id="typewriterText" class="text-sm font-bold text-rutgers"></span>
+                                <span class="animate-pulse text-rutgers font-bold ml-0.5">|</span>
+                            </div>
+
+                            <p class="text-xs text-slate-600 mt-1 flex items-center justify-center sm:justify-start gap-1.5">
+                                <svg class="w-4 h-4 text-rutgers shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                <span>Rutgers Business School &bull; New Brunswick, NJ </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons Column -->
+                    <div class="flex flex-col sm:flex-row md:flex-col gap-2.5 shrink-0 w-full md:w-48">
+                        <button id="copyEmailBtn" type="button" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-sm transition-all">
+                            <svg class="w-4 h-4 text-rutgers-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                            <span>Copy Email</span>
+                        </button>
+
+                        <button id="downloadVCardBtn" type="button" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-rutgers-50 hover:bg-rutgers-100 text-rutgers font-bold text-xs transition-all border border-rutgers/30">
+                            <svg class="w-4 h-4 text-rutgers" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            <span>Save Contact (.vcf)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Compact Profiles Bar -->
+                <div class="mt-5 pt-4 border-t border-slate-200/80 flex items-center justify-between flex-wrap gap-2 text-xs">
+                    <span class="font-bold text-slate-500 uppercase tracking-wider text-[11px]">Connect & Links:</span>
+                    <div class="flex items-center gap-2">
+                        <a href="https://github.com/hui1256" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-rutgers hover:text-white text-slate-700 font-semibold transition-colors flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/jinny-piao" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-rutgers hover:text-white text-slate-700 font-semibold transition-colors flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            LinkedIn
+                        </a>
+                        <a href="mailto:mellghth57@gmail.com" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-rutgers hover:text-white text-slate-700 font-semibold transition-colors flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            Direct Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-6 md:py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <!-- About Narrative Statement with Specific Word Color Highlights -->
+            <div class="white-card rounded-2xl p-6 mb-4 border border-slate-200">
+                <h2 class="text-[11px] font-extrabold uppercase tracking-widest text-rutgers mb-2">About Me</h2>
+                <p class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                    Aspiring to combine <span class="text-amber-500 font-extrabold">curiosity</span> and <span class="text-blue-600 font-extrabold">technical skills</span> alongside <span class="text-orange-500 font-extrabold">supportive people</span> to produce <span class="text-green-600 font-extrabold">amazing work</span> across analytics, supply chain, and product management.
+                </p>
+            </div>
+
+            <!-- EXACTLY 2 BIO CARDS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Bio Card 1 -->
+                <div class="white-card rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-rutgers-50 text-rutgers flex items-center justify-center mb-3 font-bold text-lg">
+                            📊
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base mb-1">Technical Focus</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Pursuing a double major in Business Analytics & IT and Supply Chain Management at Rutgers Business School. Passionate about elevating my technical skills with real projects.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bio Card 2 -->
+                <div class="white-card rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3 font-bold text-lg">
+                            🚀
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base mb-1">Collaborative Mindset</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            My experiences in cross-functional professional environment, coach assistant in sports team, mentorship, etc has guided me to work with people.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-6 md:py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="white-card rounded-3xl p-6 sm:p-7 border border-slate-200">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-5 pb-5 border-b border-slate-200">
+                    <div class="flex items-center gap-4">
+                        <!-- RBS Badge in Rutgers Red -->
+                        <div class="w-14 h-14 rounded-2xl bg-rutgers text-white font-extrabold text-xl flex flex-col items-center justify-center shrink-0 shadow-sm">
+                            <span>RBS</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-extrabold text-slate-900">Rutgers Business School</h3>
+                            <p class="text-xs font-bold text-rutgers">Bachelor of Science in Business Analytics & IT, Supply Chain Management</p>
+                            <p class="text-xs text-slate-500 mt-0.5">Rutgers, The State University of New Jersey &bull; New Brunswick, NJ</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col items-start sm:items-end gap-1">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-rutgers-50 text-rutgers border border-rutgers/20">
+                            Cumulative GPA: 3.90 / 4.0
+                        </span>
+                        <span class="text-[11px] font-semibold text-slate-500">Expected Graduation: May 2029</span>
+                    </div>
+                </div>
+
+                <!-- Coursework Highlights -->
+                <div>
+                    <h4 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-rutgers" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        Key Coursework & Academic Exposure
+                    </h4>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-xs font-medium">
+                        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-rutgers"></span>
+                            IT & Informatics
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-rutgers"></span>
+                            Business Analytics
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-rutgers"></span>
+                            Supply Chain Strategy
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-rutgers"></span>
+                            Data Management & Logic
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-6 md:py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="mb-4">
+                <h2 class="text-[11px] font-extrabold uppercase tracking-widest text-rutgers mb-1">Competencies</h2>
+                <h3 class="text-xl font-extrabold text-slate-900">Skills</h3>
+            </div>
+
+            <!-- Skills Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <!-- Category 1: Software & Programming -->
+                <div class="white-card rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2.5 h-2.5 rounded-full bg-rutgers"></span>
+                            <h4 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Software & Programming</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80">
+                                Shopify
+                            </span>
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80">
+                                HTML
+                            </span>
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80">
+                                CSS
+                            </span>
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80">
+                                Python
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Productivity & Tools -->
+                <div class="white-card rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                            <h4 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Productivity & Tools</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80">
+                                Microsoft Office
+                            </span>
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80">
+                                Google Workspace
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Gen AI Prompting -->
+                <div class="white-card rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+                            <h4 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Gen AI Prompting</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80">
+                                Copilot
+                            </span>
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80">
+                                Gemini
+                            </span>
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80">
+                                ChatGPT
+                            </span>
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80">
+                                Claude
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: General -->
+                <!-- Category 4: General / Languages -->
+                <div class="white-card rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+                            <h4 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Languages</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                English
+                            </span>
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                Mandarin Chinese
+                            </span>
+                            <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 text-xs font-semibold border border-slate-200/80 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                Korean
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Relevant Projects & Leadership Section -->
+    <section id="experience" class="py-6 md:py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
+                <div>
+                    <h2 class="text-[11px] font-extrabold uppercase tracking-widest text-rutgers mb-1">Impact & Leadership</h2>
+                    <h3 class="text-xl font-extrabold text-slate-900">Relevant Projects & Fellowships</h3>
+                </div>
+                <p class="text-xs text-slate-500">Click any card for detailed responsibilities and accomplishments.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <!-- Experience 1: Blueprint Product Management Fellowship -->
+                <div class="white-card white-card-hover rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-rutgers-50 text-rutgers border border-rutgers/20">
+                                Fellowship
+                            </span>
+                            <span class="text-[11px] font-semibold text-slate-400">Product Strategy</span>
+                        </div>
+                        <h4 class="text-base font-extrabold text-slate-900 mb-1">Blueprint Product Management Fellowship</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Engaged in intensive product lifecycle training, conducting user research, defining product specs, wireframing, and building feature roadmaps.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Product Strategy</span>
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">User Research</span>
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Wireframing</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openProjectModal('Blueprint Product Management Fellowship', 'Selected for competitive product management fellowship. Formulated product requirements documents (PRDs), mapped user personas, executed competitive market analysis, and created low-to-high fidelity wireframes for mobile/web digital products.', ['Product Strategy', 'User Research', 'Wireframing', 'Roadmap Design', 'PRD Authoring'])" class="w-full py-2 rounded-xl bg-slate-100 hover:bg-rutgers hover:text-white text-slate-800 text-xs font-bold transition-colors text-center">
+                        View Fellowship Details &rarr;
+                    </button>
+                </div>
+
+                <!-- Experience 2: CreativeX UI/UX Design Fellowship -->
+                <div class="white-card white-card-hover rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200">
+                                Design Fellowship
+                            </span>
+                            <span class="text-[11px] font-semibold text-slate-400">UI/UX & Design</span>
+                        </div>
+                        <h4 class="text-base font-extrabold text-slate-900 mb-1">CreativeX UI/UX Design Fellowship</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Focused on human-centered design principles, usability testing, prototyping, and creating cohesive visual design systems for digital platforms.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">UI/UX Design</span>
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Prototyping</span>
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Usability Testing</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openProjectModal('CreativeX UI/UX Design Fellowship', 'Designed interactive user flows and web interfaces during the fellowship. Applied accessibility guidelines (WCAG), iterated based on peer feedback, and designed responsive UI elements that improve user navigation efficiency.', ['UI/UX Design', 'Prototyping', 'Usability Testing', 'Design Systems', 'Figma Wireframes'])" class="w-full py-2 rounded-xl bg-slate-100 hover:bg-rutgers hover:text-white text-slate-800 text-xs font-bold transition-colors text-center">
+                        View Fellowship Details &rarr;
+                    </button>
+                </div>
+
+                <!-- Experience 3: Rutgers Global Volunteer Corps -->
+                <div class="white-card white-card-hover rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                Campus Leadership
+                            </span>
+                            <span class="text-[11px] font-semibold text-slate-400">Global Engagement</span>
+                        </div>
+                        <h4 class="text-base font-extrabold text-slate-900 mb-1">Rutgers Global Volunteer Corps</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Participated in cross-cultural community initiatives, driving event outreach, student engagement, and cross-departmental team collaboration.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Community Outreach</span>
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Event Support</span>
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Team Collaboration</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openProjectModal('Rutgers Global Volunteer Corps', 'Collaborated with international and domestic student volunteers to facilitate orientation programs, global awareness workshops, and community partnership initiatives at Rutgers University.', ['Cross-Cultural Communication', 'Community Outreach', 'Event Support', 'Team Collaboration'])" class="w-full py-2 rounded-xl bg-slate-100 hover:bg-rutgers hover:text-white text-slate-800 text-xs font-bold transition-colors text-center">
+                        View Role Details &rarr;
+                    </button>
+                </div>
+
+                <!-- Experience 4: KSEA Event Coordinator Intern -->
+                <div class="white-card white-card-hover rounded-2xl p-5 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md bg-purple-50 text-purple-700 border border-purple-200">
+                                Internship / Leadership
+                            </span>
+                            <span class="text-[11px] font-semibold text-slate-400">Event & Operations</span>
+                        </div>
+                        <h4 class="text-base font-extrabold text-slate-900 mb-1">KSEA Event Coordinator Intern</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            Coordinated logistics, promotional strategies, and venue planning for Korean-American Scientists & Engineers Association conferences and meetings.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1.5 mb-4">
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Event Planning</span>
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Social Marketing</span>
+                            <span class="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Logistics</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openProjectModal('KSEA Event Coordinator Intern', 'Served as Event Coordinator Intern for KSEA (Korean-American Scientists & Engineers Association). Managed event logistics, attendee check-ins, social media platform promotion, and sponsor communications to ensure smooth event operations.', ['Event Logistics', 'Social Media Platforms', 'Google Workspace', 'Sponsor Outreach', 'Budget Tracking'])" class="w-full py-2 rounded-xl bg-slate-100 hover:bg-rutgers hover:text-white text-slate-800 text-xs font-bold transition-colors text-center">
+                        View Role Details &rarr;
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-8 md:py-10">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="white-card rounded-3xl p-6 sm:p-8 border border-slate-200 relative overflow-hidden">
+                <div class="text-center mb-6">
+                    <h2 class="text-[11px] font-extrabold uppercase tracking-widest text-rutgers mb-1">Get In Touch</h2>
+                    <h3 class="text-2xl font-extrabold text-slate-900 mb-1">Let's Connect!</h3>
+                    <p class="text-xs text-slate-500">Seeking summer internship opportunities, coffee chats, and technical collaborations.</p>
+                </div>
+
+                <form id="contactForm" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="senderName" class="block text-[11px] font-extrabold text-slate-700 uppercase tracking-wider mb-1">Your Name</label>
+                            <input type="text" id="senderName" required placeholder="Recruiter / Peer Name" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-rutgers text-xs">
+                        </div>
+                        <div>
+                            <label for="senderEmail" class="block text-[11px] font-extrabold text-slate-700 uppercase tracking-wider mb-1">Your Email</label>
+                            <input type="email" id="senderEmail" required placeholder="name@company.com" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-rutgers text-xs">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="messageBody" class="block text-[11px] font-extrabold text-slate-700 uppercase tracking-wider mb-1">Message</label>
+                        <textarea id="messageBody" rows="4" required placeholder="Hi Jinny, I'd like to connect regarding an opportunity at..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-rutgers text-xs resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3 rounded-xl bg-rutgers hover:bg-rutgers-dark text-white font-bold text-xs shadow-sm transition-all">
+                        Send Message
+                    </button>
+                </form>
+
+                <!-- Feedback Screen Overlay -->
+                <div id="formFeedback" class="hidden absolute inset-0 bg-white/95 backdrop-blur-md rounded-3xl flex flex-col items-center justify-center p-6 text-center z-10">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-3 text-2xl font-bold">
+                        ✓
+                    </div>
+                    <h4 class="text-xl font-extrabold text-slate-900 mb-1">Message Sent!</h4>
+                    <p class="text-xs text-slate-600 mb-4 max-w-xs">Thank you for reaching out! I will check my email and get back to you promptly.</p>
+                    <button id="resetFormBtn" type="button" class="px-4 py-2 rounded-xl bg-slate-900 text-white text-xs font-semibold">
+                        Send Another Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Generic Experience Detail Modal -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="white-card rounded-3xl p-6 sm:p-7 max-w-md w-full relative border border-slate-200 shadow-2xl">
+            <button id="closeProjectModalBtn" type="button" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-rutgers block mb-1">Experience Overview</span>
+            <h3 id="modalProjectTitle" class="text-xl font-bold text-slate-900 mb-2">Title</h3>
+            <p id="modalProjectDesc" class="text-xs text-slate-600 leading-relaxed mb-4">Description...</p>
+            
+            <div class="mb-6">
+                <h4 class="text-[11px] font-extrabold text-slate-500 uppercase tracking-wider mb-2">Core Skills & Competencies</h4>
+                <div id="modalProjectBadges" class="flex flex-wrap gap-1.5"></div>
+            </div>
+
+            <button onclick="document.getElementById('projectModal').classList.add('hidden')" class="w-full py-2.5 rounded-xl bg-rutgers text-white font-bold text-xs text-center hover:bg-rutgers-dark transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-6 border-t border-slate-200/80 bg-white/80">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+            <div>
+                &copy; <span id="yearSpan"></span> Jinny (Huizhen) Piao &bull; Rutgers Business School Student
+            </div>
+            <a href="#hero" class="text-rutgers font-bold hover:underline">Back to Top &uarr;</a>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Footer Year
+            document.getElementById('yearSpan').textContent = new Date().getFullYear();
+
+            // Mobile Navigation Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                });
+            }
+
+            // Typewriter Animation
+            const roles = [
+                "Business Analytics & IT Major",
+                "Supply Chain Management Student",
+                "Blueprint Product Management Fellow",
+                "CreativeX UI/UX Design Fellow"
+            ];
+            let roleIdx = 0;
+            let charIdx = 0;
+            let isDeleting = false;
+            const typewriterEl = document.getElementById('typewriterText');
+
+            function typeWriter() {
+                const current = roles[roleIdx];
+                if (isDeleting) {
+                    typewriterEl.textContent = current.substring(0, charIdx - 1);
+                    charIdx--;
+                } else {
+                    typewriterEl.textContent = current.substring(0, charIdx + 1);
+                    charIdx++;
+                }
+
+                let speed = isDeleting ? 25 : 60;
+
+                if (!isDeleting && charIdx === current.length) {
+                    speed = 1800;
+                    isDeleting = true;
+                } else if (isDeleting && charIdx === 0) {
+                    isDeleting = false;
+                    roleIdx = (roleIdx + 1) % roles.length;
+                    speed = 300;
+                }
+                setTimeout(typeWriter, speed);
+            }
+            if (typewriterEl) typeWriter();
+
+            // Copy Email Helper
+            const copyEmailBtn = document.getElementById('copyEmailBtn');
+            const targetEmail = 'mellghth57@gmail.com';
+
+            if (copyEmailBtn) {
+                copyEmailBtn.addEventListener('click', () => {
+                    copyToClipboard(targetEmail);
+                    showToast('Email address copied to clipboard! 📋');
+                });
+            }
+
+            function copyToClipboard(text) {
+                const dummy = document.createElement('textarea');
+                dummy.value = text;
+                dummy.style.position = 'fixed';
+                dummy.style.opacity = '0';
+                document.body.appendChild(dummy);
+                dummy.select();
+                try {
+                    document.execCommand('copy');
+                } catch (err) {
+                    console.error('Copy failed', err);
+                }
+                document.body.removeChild(dummy);
+            }
+
+            // vCard (.vcf) Generator
+            const downloadVCardBtn = document.getElementById('downloadVCardBtn');
+            if (downloadVCardBtn) {
+                downloadVCardBtn.addEventListener('click', () => {
+                    const vCardContent = [
+                        'BEGIN:VCARD',
+                        'VERSION:3.0',
+                        'FN:Jinny (Huizhen) Piao',
+                        'N:Piao;Jinny;Huizhen;;',
+                        'TITLE:Student & Aspiring Analytics / Product Professional',
+                        'ORG:Rutgers Business School',
+                        'EMAIL;TYPE=INTERNET:mellghth57@gmail.com',
+                        'URL:https://github.com/hui1256',
+                        'NOTE:Rutgers Business Analytics & IT and Supply Chain Management Student',
+                        'END:VCARD'
+                    ].join('\n');
+
+                    const blob = new Blob([vCardContent], { type: 'text/vcard;charset=utf-8;' });
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.setAttribute('download', 'Jinny_Piao_Contact.vcf');
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(url);
+
+                    showToast('vCard contact file saved! 📇');
+                });
+            }
+
+            // QR Modal Toggle
+            const openQrModalBtn = document.getElementById('openQrModalBtn');
+            const closeQrModalBtn = document.getElementById('closeQrModalBtn');
+            const qrModal = document.getElementById('qrModal');
+            const copyLinkModalBtn = document.getElementById('copyLinkModalBtn');
+
+            if (openQrModalBtn && qrModal) {
+                openQrModalBtn.addEventListener('click', () => qrModal.classList.remove('hidden'));
+            }
+            if (closeQrModalBtn && qrModal) {
+                closeQrModalBtn.addEventListener('click', () => qrModal.classList.add('hidden'));
+            }
+            if (qrModal) {
+                qrModal.addEventListener('click', (e) => {
+                    if (e.target === qrModal) qrModal.classList.add('hidden');
+                });
+            }
+            if (copyLinkModalBtn) {
+                copyLinkModalBtn.addEventListener('click', () => {
+                    copyToClipboard(window.location.href);
+                    showToast('Portfolio URL copied! 🔗');
+                });
+            }
+
+            // Contact Form Feedback Handler
+            const contactForm = document.getElementById('contactForm');
+            const formFeedback = document.getElementById('formFeedback');
+            const resetFormBtn = document.getElementById('resetFormBtn');
+
+            if (contactForm && formFeedback) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    formFeedback.classList.remove('hidden');
+                    showToast('Message sent successfully! 🚀');
+                });
+            }
+            if (resetFormBtn && contactForm && formFeedback) {
+                resetFormBtn.addEventListener('click', () => {
+                    contactForm.reset();
+                    formFeedback.classList.add('hidden');
+                });
+            }
+
+            // Toast Helper
+            function showToast(msg) {
+                const container = document.getElementById('toastContainer');
+                if (!container) return;
+
+                const toast = document.createElement('div');
+                toast.className = 'toast-animate pointer-events-auto px-4 py-3 rounded-xl bg-slate-900 text-white text-xs font-semibold shadow-xl border border-slate-700 flex items-center gap-2';
+                toast.innerHTML = `<span>${msg}</span>`;
+
+                container.appendChild(toast);
+
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transition = 'opacity 0.22s ease';
+                    setTimeout(() => {
+                        if (toast.parentNode) toast.parentNode.removeChild(toast);
+                    }, 220);
+                }, 2600);
+            }
+        });
+
+        // Global Modal Opener for Projects / Fellowships
+        function openProjectModal(title, desc, badges) {
+            const modal = document.getElementById('projectModal');
+            const titleEl = document.getElementById('modalProjectTitle');
+            const descEl = document.getElementById('modalProjectDesc');
+            const badgesEl = document.getElementById('modalProjectBadges');
+            const closeBtn = document.getElementById('closeProjectModalBtn');
+
+            if (!modal) return;
+
+            titleEl.textContent = title;
+            descEl.textContent = desc;
+
+            badgesEl.innerHTML = '';
+            badges.forEach(badge => {
+                const span = document.createElement('span');
+                span.className = 'text-[10px] font-bold bg-rutgers-50 text-rutgers border border-rutgers/20 px-2.5 py-0.5 rounded-md';
+                span.textContent = badge;
+                badgesEl.appendChild(span);
+            });
+
+            modal.classList.remove('hidden');
+
+            closeBtn.onclick = () => modal.classList.add('hidden');
+            modal.onclick = (e) => {
+                if (e.target === modal) modal.classList.add('hidden');
+            };
+        }
+    </script>
+</body>
+</html>
